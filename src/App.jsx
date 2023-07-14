@@ -1,15 +1,21 @@
 
 
-import ListContent from "./TaskList"
 
- 
+import './style.css' 
+import './index.css'
+
+import Task from './Task'
+
+
+
 function App() {
  
   
 
-  return(  <div>
-   
-    <ListContent/>
+  return(  <div > 
+    
+  <Task/>
+    
   </div>
    
   )

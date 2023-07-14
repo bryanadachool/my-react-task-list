@@ -2,12 +2,15 @@ ul{
     margin: 0;
     padding: 0;
 }
-ul li{
+li{
     list-style-type: none;
-    cursor: pointer;
+    
     position: relative;
     transition: 0.2;
 }
 .icon{
     color: tomato;
+}
+span{
+    cursor: pointer;
 }
