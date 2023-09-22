@@ -1,49 +1,23 @@
 
 import { useEffect,useState} from "react"
+import useTaskManager from "./components/useTaskManager";
 export default function Task(){
-  const [dataList, setDatalist] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("listTask"));
-    if (storedTodos) {
-      setDatalist(storedTodos);
-    }
-  }, []);
-
- 
+  const {
+    dataList,
+    inputValue,
+    setInputValue,
+    createTask,
+    deleteTask,
+    updateTask,
+  } = useTaskManager();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    localStorage.setItem("listTask", JSON.stringify(dataList));
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim() !== "") {
-      const newTodo = {
-        id: new Date().getTime(),
-        text: inputValue,
-        completed: false
-      };
-      setDatalist([...dataList, newTodo]);
-      setInputValue("");
-    }
-  };
-
-  const handleTodoDelete = (id) => {
-    setDatalist(dataList.filter((dataList) => dataList.id !== id));
-  };
-
-  const handleTodoComplete = (id) => {
-    setDatalist(
-      dataList.map((dataList) => {
-        if (dataList.id === id) {
-          return { ...dataList, completed: !dataList.completed };
-        }
-        return dataList;
-      })
-    );
+    createTask(inputValue);
   };
 
   return (
@@ -65,16 +39,16 @@ export default function Task(){
             <input
               type="checkbox"
               checked={task.completed}
-              onChange={() => handleTodoComplete(task.id)}
+              onChange={() => updateTask(task.id)}
             />
             <span
               style={{
-                textDecoration: task.completed ? "line-through" : "none"
+                textDecoration: task.completed ? "line-through" : "none",
               }}
             >
               {task.text}
             </span>
-            <button onClick={() => handleTodoDelete(task.id)}>Delete</button>
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
           </li>
         ))}
       </ul>
