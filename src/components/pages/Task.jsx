@@ -1,4 +1,4 @@
-
+import { Button } from"@chakra-ui/react";
 import useTaskManager from "../useTaskManager";
 export default function Task(){
   const {
@@ -44,7 +44,7 @@ export default function Task(){
           onChange={handleDescriptionChange}
           placeholder="Add a description..."
         />
-        <button type="submit">Add</button>
+        <Button type="submit" colorScheme="blue">Add</Button>
       </form>
 
       <ul>
