@@ -1,16 +1,66 @@
-ul{
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
     margin: 0;
     padding: 0;
-}
-li{
-    list-style-type: none;
-    
-    position: relative;
-    transition: 0.2;
-}
-.icon{
-    color: tomato;
-}
-span{
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  
+  button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
     cursor: pointer;
-}
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  button:hover {background-color: #3e8e41}
+  
+  button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  li input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+  }

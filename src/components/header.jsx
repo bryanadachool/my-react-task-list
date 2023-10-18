@@ -1,26 +1,14 @@
-import Task from "../Task";
-
-import { useState } from "react";
-import ListContent from "../TaskList";
-
-
+import { Box,Text,Heading } from "@chakra-ui/react";
 export default function Header() {
   
- 
-   
-    return (
-        <div>
-            <h1>Task List</h1>
-          <ListContent/>
-          
-          <nav>
-            <ul>
-             
-              
-            </ul>
-          </nav>
-        </div>
-    )
-    
-    
+  return (
+    //<div className="header">
+    <Box bg="teal" p={4} color="white">
+        <Heading as="h1" size="lg">
+            Task Manager
+        </Heading>
+    </Box>
+      
+   // </div>
+  );
 }

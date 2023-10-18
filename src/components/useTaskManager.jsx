@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function useTaskManager() {
   const [dataList, setDatalist] = useState([]);
   const [inputValue, setInputValue] = useState("");
-
+  const [descriptionValue, setDescriptionValue]=useState("")
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("listTask"));
     if (storedTodos) {
@@ -12,15 +12,17 @@ export default function useTaskManager() {
     }
   }, []);
 
-  const createTask = (text) => {
+  const createTask = (text,description) => {
     if (text.trim() !== "") {
       const newTodo = {
         id: new Date().getTime(),
         text: text,
+        description: description,
         completed: false,
       };
       setDatalist([...dataList, newTodo]);
       setInputValue("");
+      setDescriptionValue("")
       localStorage.setItem("listTask", JSON.stringify([...dataList, newTodo]));
     }
   };
@@ -45,7 +47,9 @@ export default function useTaskManager() {
   return {
     dataList,
     inputValue,
+    descriptionValue,
     setInputValue,
+    setDescriptionValue,
     createTask,
     deleteTask,
     updateTask,
